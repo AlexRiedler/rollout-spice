@@ -20,12 +20,17 @@ class RolloutSpice::Feature
     @misc = attributes
   end
 
-  def unwrapped
-    rollout.get(@key)
-  end
-
   def active_ids
     rollout.get(@key).users
+  end
+
+  delegate :percentage, to: :unwrapped
+  delegate :groups, to: :unwrapped
+
+private
+
+  def unwrapped
+    rollout.get(@key)
   end
 
   def rollout

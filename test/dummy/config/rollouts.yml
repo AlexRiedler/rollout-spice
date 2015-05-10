@@ -3,3 +3,11 @@
   description: "Enables/Disables tracking of all mixpanel events on the backend"
   rollout_type: Global
   rollout_key: mixpanel_tracking
+- name: "Assign Buyer and Price (interest button)"
+  description: "Enable for the community, the interested button."
+  rollout_type: User
+  rollout_key: assign_buyer_and_price
+- name: "Assign Buyer and Price (interest button)"
+  description: "Enable for the community, the interested button."
+  rollout_type: Percentage
+  rollout_key: my_magic_percent

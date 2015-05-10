@@ -1,0 +1,23 @@
+.feature {
+  @include outer-container;
+  h2 { @include span-columns(12); }
+  span.description { @include span-columns(12); }
+
+  .controls { @include span-columns(8); }
+  .confirm { @include span-columns(4); }
+
+  .confirm {
+    text-align: right;
+  }
+}
+
+.feature.percentage {
+  .controls {
+    label {
+      @include span-columns(12);
+    }
+    input {
+      @include span-columns(3);
+    }
+  }
+}

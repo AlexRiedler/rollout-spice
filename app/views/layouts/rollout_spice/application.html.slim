@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title
+      | Rollout Spice - Spice up your rollouts
+    = stylesheet_link_tag "rollout_spice/application", media: "all"
+    = javascript_include_tag "rollout_spice/application"
+    = csrf_meta_tags
+  body
+    = render partial: 'layouts/rollout_spice/nav'
+    section.container
+      = yield

@@ -20,10 +20,14 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", ">= 4.0"
   s.add_dependency "rollout", "~> 2.0"
   s.add_dependency "slim"
+  s.add_dependency "bourbon"
   s.add_dependency "neat"
+  s.add_dependency "bitters"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "redis"
   s.add_development_dependency "hiredis"
   s.add_development_dependency "foreman"
+  s.add_development_dependency "pry"
+  s.add_development_dependency "pry-byebug"
 end
