@@ -1,0 +1,5 @@
+---
+- name: "Mixpanel Tracking"
+  description: "Enables/Disables tracking of all mixpanel events on the backend"
+  rollout_type: Global
+  rollout_key: mixpanel_tracking

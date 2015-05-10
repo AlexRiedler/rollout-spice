@@ -1,0 +1,15 @@
+h1
+  |  Rollout Spice
+- @features.each do |feature|
+  .feature
+    h2
+      = feature.name
+    span.description
+      = feature.description
+    .controls
+      - if feature.type == "Global"
+        | THIS WILL BE A TOGGLE
+      - elsif feature.type == "User"
+      - elsif feature.type == "Percentage"
+      - else
+        | UNHANDLED TYPE #{feature.type}
