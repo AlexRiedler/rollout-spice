@@ -24,6 +24,9 @@ Gem::Specification.new do |s|
   s.add_dependency "neat"
   s.add_dependency "bitters"
 
+  s.add_dependency "selectivity-rails"
+  s.add_dependency "jquery-rails"
+
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "redis"
   s.add_development_dependency "hiredis"

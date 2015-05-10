@@ -1,5 +1,5 @@
 - @features.each do |feature|
-  fieldset.feature[class="#{feature.type.downcase}"]
+  fieldset.feature[class="#{feature.type.downcase}" id="#{feature.key}"]
     h2
       = feature.name
     span.description
@@ -12,26 +12,36 @@
           input[type="checkbox"]
             .checkbox
       - elsif feature.type == "User"
-        label
-          | Active for...
-        ul.active-ids
-          - feature.active_ids.each do |id|
-            li
-              = id
-              .remove-button
-        label
-          | And Groups...
-        ul.active-ids
-          - feature.groups.each do |group|
-            li
-              = group
-              .remove-button
+        label[for="#{feature.key}-ids"]
+          | IDS
+        .selectivity-input[id="#{feature.key}-ids"]
+        label[for="#{feature.key}-groups"]
+          | GROUPS
+        .selectivity-input[id="#{feature.key}-groups"]
+
+        javascript:
+          var identitySelectivity = function (token) {
+            return { id: token, text: token };
+          };
+          $("##{feature.key}-ids").selectivity({
+            inputType: "Multiple",
+            showDropdown: false,
+            createTokenItem: identitySelectivity
+          });
+          $("##{feature.key}-groups").selectivity({ inputType: "Multiple", items: #{ raw JSON.dump(RolloutSpice::Config.groups) } });
       - elsif feature.type == "Percentage"
         .progress-bar-indication
           span.meter[style="width: #{feature.percentage}%"]
             p
               | #{feature.percentage}%
+        javascript:
+          $("##{feature.key} .progress-bar-indication").on('click', function(evt) {
+            var $el = $(evt.currentTarget);
+            var x = evt.pageX - $el.offset().left;
+            var percent = Math.round(x / $el.width() * 100);
+            console.log("percent", percent);
+          });
       - else
-        | UNHANDLED TYPE #{feature.type}
+        | UNHANDLED TYPE '#{feature.type}'
     .confirm
       input[type="submit" value="Save" disabled=true]

@@ -5,6 +5,8 @@
 @import "bourbon"; // Base
 @import "neat"; // Grid
 @import "base/base"; // Scaffold
+@import "selectivity"; // multi-select
+@import "font-awesome/font-awesome"; // didn't use font-awesome-rails, cause it does not support .scss properly
 
 //
 // Sane Defaults
